@@ -32,8 +32,8 @@ public class WeatherController {
         }
     }
     @GetMapping("/forecast")
-    public String getForecastPage(@RequestParam(name = "startDate", required = false) String startDate,
-                                  @RequestParam(name = "endDate", required = false) String endDate,
+    public String getForecastPage(@RequestParam(name = "startDate") String startDate,
+                                  @RequestParam(name = "endDate") String endDate,
                                   Model model) throws IOException, ParseException {
 
         Forecast forecast = weatherService.getForecast(startDate,endDate);
