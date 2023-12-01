@@ -14,6 +14,8 @@
 
 <h3> Средняя температура за период  <br /> с: ${forecast.startDate} <br />
     по: ${forecast.endDate} <br />
-    ${forecast.temp} °C </h3>
+    <br /><br /><br />
+    <h2> ${forecast.temp} °C </h2>
+</h3>
 </body>
 </html>
