@@ -22,6 +22,8 @@ public class WeatherController {
     public String getCurrentWeatherPage(Model model) {
         try {
             CurrentWeather weather = weatherService.getCurrentWeather();
+            model.addAttribute("currnetDate",weatherService.getCurrentDate());
+            model.addAttribute("inSevenDaysDate",weatherService.getInSevenDaysDate());
             model.addAttribute("weather", weather);
             weatherService.saveCurrentWeather(weather);
             return "current_weather";

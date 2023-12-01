@@ -34,8 +34,6 @@ public class CurrentWeather {
     @Column(name = "cond")
     private String condition;
 
-    @Column(name = "location")
-    private String location;
     @Column(name = "region")
     private String region;
     @Column(name = "city")

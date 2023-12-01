@@ -2,6 +2,11 @@
 <html>
 <head>
     <title>  FORECAST  </title>
+
+    <style type="text/css">
+        <#include "css/styles.css">
+    </style>
+
 </head>
 <h1></h1>
 <body>

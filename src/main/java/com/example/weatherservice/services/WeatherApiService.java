@@ -5,7 +5,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 public class WeatherApiService {
     public String getResponse() {
         WebClient webClient = WebClient.create();
-        String apiUrl = "https://api.weather.yandex.ru/v2/forecast?lat=53.53590&lon=27.34000&extra=true&lang=ru_RU";
+        String apiUrl = "https://api.weather.yandex.ru/v2/forecast?lat=53.902735&lon=27.555696&extra=true&lang=ru_RU";
 
 
         WebClient.RequestHeadersSpec<?> requestSpec = webClient.get()

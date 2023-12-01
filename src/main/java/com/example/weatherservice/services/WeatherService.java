@@ -13,6 +13,8 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -39,7 +41,7 @@ public class WeatherService {
             weather.setHumidity(weatherNode.get("fact").get("humidity").toString());
             weather.setCondition(weatherNode.get("fact").get("condition").toString());
             weather.setWindSpeed(Double.parseDouble(weatherNode.get("fact").get("wind_speed").toString())*3600);
-            weather.setLocation(weatherNode.get("geo_object").get("locality").get("name").toString());
+
             weather.setRegion(weatherNode.get("geo_object").get("province").get("name").toString());
             weather.setCity(weatherNode.get("info").get("tzinfo").get("name").toString());
         }
@@ -51,6 +53,7 @@ public class WeatherService {
 
         WeatherApiService api = new WeatherApiService();
         String json = api.getResponse();
+
 
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode rootNode = objectMapper.readTree(json);
@@ -85,7 +88,7 @@ public class WeatherService {
         weatherRepository.save(currentWeather);
     }
     @Value("${weather.api.interval}")
-    @Scheduled(fixedRateString = "${weather.api.interval}") // Запрос каждые 10 секунд(в миллисекундах)
+    @Scheduled(fixedRateString = "${weather.api.interval}") // Запрос (в миллисекундах)
     public void fetchWeatherPeriodically() {
         try {
            saveCurrentWeather(getCurrentWeather());
@@ -101,6 +104,24 @@ public class WeatherService {
             sum+=list.get(i);
         }
         return sum/list.size();
+    }
+    private static String formatDate(LocalDate date) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        return date.format(formatter);
+    }
+    public String getCurrentDate ()
+    {
+        LocalDate currentDate = LocalDate.now();
+        System.out.println("Текущая дата: " + formatDate(currentDate));
+        return formatDate(currentDate);
+    }
+    public String getInSevenDaysDate ()
+    {
+        LocalDate currentDate = LocalDate.now();
+        LocalDate dateInSevenDays = currentDate.plusDays(7);
+        System.out.println("Дата через 7 дней: " + formatDate(dateInSevenDays));
+
+        return formatDate(dateInSevenDays);
     }
     }
 
