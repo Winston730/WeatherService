@@ -5,8 +5,9 @@
 ###### 1. Клонирование репозитория
 
 ```bash
-git clone https://github.com/yourusername/weather-service.git
-cd weather-service
+git clone https:
+https://github.com/Winston730/WeatherService
+cd Weatherservice
 ```
     
 ###### 2. Настройка API ключа Yandex.Weather
