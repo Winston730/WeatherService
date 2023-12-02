@@ -24,13 +24,13 @@
 <form action="/forecast" method="get">
     <div class="mt-4">
         C:
-        <input type="date" name="startDate" value="${currnetDate}"
-               max="${inSevenDaysDate}" min="${currnetDate}">
+        <input type="date" name="startDate" value="${currentDate}"
+               max="${inSevenDaysDate}" min="${currentDate}">
     </div>
     <div class="mt-4">
         До:
-        <input type="date" name="endDate" value="${currnetDate}"
-               max="${inSevenDaysDate}" min="${currnetDate}">
+        <input type="date" name="endDate" value="${currentDate}"
+               max="${inSevenDaysDate}" min="${currentDate}">
     </div>
     <p>
         <button type="submit">Отправить</button>

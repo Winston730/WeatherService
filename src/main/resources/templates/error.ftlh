@@ -5,5 +5,7 @@
 </head>
 <body>
 ERROR!!!
+
+<p>${error}</p>
 </body>
 </html>
